@@ -1,11 +1,16 @@
 require ("dotenv").config()
 var express = require("express")
+var app=express()
+var cors = require("cors")
 var connectToDatabase = require("./Database/db")
+
 var bookRoute = require("./routes/book-routes")
 connectToDatabase()
 var app = express()
 app.use(express.json())
-app.use("api/books",bookRoute)
+app.use(cors())
+
+app.use("/api/books",bookRoute)
 
 var PORT = process.env.PORT||9000
 app.listen(PORT,()=>{

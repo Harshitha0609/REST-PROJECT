@@ -5,4 +5,4 @@ var bookSchema = new mongoose.Schema({
     Author : String,
     isActive : Boolean
 })
-var mybook = mongoose.model("book",bookSchema)
+module.exports=mongoose.model("books",bookSchema)
