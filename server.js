@@ -5,12 +5,14 @@ var cors = require("cors")
 var connectToDatabase = require("./Database/db")
 
 var bookRoute = require("./routes/book-routes")
+var productRoute = require("./routes/product-routes")
 connectToDatabase()
 var app = express()
 app.use(express.json())
 app.use(cors())
 
 app.use("/api/books",bookRoute)
+app.use("/api/products",productRoute)
 
 var PORT = process.env.PORT||9000
 app.listen(PORT,()=>{
