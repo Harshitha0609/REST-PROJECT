@@ -16,6 +16,7 @@ var addBook = async(req,res)=>{
     var newBook = await books.create(formData)
     if (newBook){
         res.status(201).json(newBook)
+    
     }else{
         res.status(404).json({message:"cannot add"})
     }
